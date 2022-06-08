@@ -55,8 +55,8 @@ function moveHelpImg(target, img, index) {
 // bgm播放器
 //实例化对象
 var bgmPlayer = document.getElementById('bgmPlayer');
-var musicSource = ["你一定能成为你想成为的大人.mp3", "未来再见.mp3"];
-var musicTitle = ["[你一定能成为你想成为的大人]----网络群星", "[未来再见]----HOYO-Mix"];
+var musicSource = ["1397406180.mp3", "Never Gonna Give You Up.mp3"];
+var musicTitle = ["[爱情转移]----陈奕迅", "[Never Gonna Give You Up]----你又被骗了"];
 var bgmInfoWrapper = document.getElementById('bgmInfoWrapper');
 var bgmInfo = document.getElementById('bgmInfo');
 var bgmPlayControl = document.getElementById('bgmPlayControl');
