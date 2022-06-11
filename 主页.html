@@ -1,0 +1,362 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <title>逐梦桐海</title>
+        <meta charest="Unicode">
+        <link rel="icon" href="images/mainlogo.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/class.css" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    
+    <body>
+        <!--页面加载进度框-->
+        <div id="loadingBox">
+            <div id="LBbox"><p id="loadMessage"></p><div id="LB"></div></div>
+        </div>
+        <!--导航/信息栏-->
+        <div id="head" class="head_df">
+            <img id="logo" src="images/mainlogo.png" alt="图片加载失败...">
+            <div id="userinfo" class="userinfo_df">
+                <div id="user_icon">
+                    <img src="images/123.jpg">
+                </div>
+                <p id="user_name">十五班某美女/帅哥</p>
+                <a href="javascript:;" id="user_more_info">个人信息</a>
+                <p id="musiclogo" class="state">🎵</p>
+                <p id="New" class="state" style="color:red">New!</p>
+            </div>
+            <div id="nav" class="nav_df">
+                <li class="nav_li"><a href="link/亚斯主网页.html">桐海服务器</a></li>
+                <li class="nav_li"><a href="https://web.skype.com/">亚斯无SIM通讯</a></li>
+               <li class="nav_li"><a id="last_a" href="link/应用商店/index.html">应用商店</a></li>           </div>
+            <a title="设置" href="javascript:;" id="settings">🔧<p>设置</p></a>
+        </div>
+        <div id="opacity"></div>
+
+        <div id="main_wrapper">
+            <!--设置页面-->
+            <div class="stWrapper" id="stWrapper">
+                <div id="stBox" class="stBox">
+                    <span id="outS">×</span>
+                    <center><h2>Settings</h2></center>
+                    <div class="options">
+                       
+                    </div>
+                </div>
+            </div>
+            <!--主题背景图-->
+            <img id="background" src="images/class.jpg">
+            <!--涂涂助手-->
+            <div id="assistant" class="assistant">
+                <img id="tutu" src="images/tutu.jpg">
+            </div>
+            <div id="menu" class="menu"><!--助手菜单-->
+                <a href="javascript:;" id="m4">资助开发者</a>
+                <a href="javascript:;" id="m3">帮助&说明</a>
+                <a href="javascript:;" id="m2">关于网站</a>
+                <a href="javascript:;" id="m1">网站公告</a>
+            </div>
+            <!--帮助&说明-->
+            <img id="help" class="help" src="images/Help.jpg">
+            
+            <!--背景音乐播放器-->
+            <div id="bgmPlayer">
+                <div id="open_close">展开</div>
+                <div id="playerBody">
+                    <div id="playerName">BGM：</div><marquee scrollamount="5" id="bgmName"></marquee>
+                    <div id="play_stop">||</div>
+                    <div id="lastM"><</div>
+                    <div id="nextM">></div>
+                </div>
+                <audio id="music" src=""></audio>
+            </div>
+            
+            <!--公告框-->
+            <div id="notice" class="notice">
+                <p id="noticeMessage">公告</p><span id="outN">×</span>
+                <div class="scroll" id="scroll">
+                    <p class="content">1.网站主页(此页面)主体部分已搭建完毕</p>
+                    <p class="content">2.新增大马猴助手,正在为其开发相关功能</p>
+                    <p class="content">3.新增音乐播放器</p>
+                    <p class="content">4.优化了页面动态过渡代码与bgm播放器代码</p>
+                    <p class="content">5.设置功能开始开发,网站将在六个月内备案</p>
+                    <p class="content">6.网页对浏览器缓存占用较大，若同时打开过多页面或离开此页面可能会导致本页面重新载入！</p>
+            
+                </div>
+            </div>
+            <div id="hidder"></div>
+
+            <button id="more_button">MORE</button>
+            <!--背景点击区域-->
+            <!--<div id="TV_shell" class="TV_shell"></div>
+            <iframe id="TV" class="TV" src="https://www.56.com/"></iframe>
+            <div id="novel_shell" class="novel_shell"></div>
+            <iframe id="novel" class="novel" src="https://h5.17k.com/"></iframe>-->
+
+            <div id="more">
+            <!--更多页面-->
+                <a href="https://baidu.com" class="baidu2">百度</a>
+                <button id="outmore_button">BACK</button>
+                <p id="c">Copyright By ASI Red Sun Network Technology Centre.亚斯科技©2021</p>
+                <p id="marquee">Under Construction...</p>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            //初始化变量
+            var loadingBox=document.getElementById("loadingBox");
+            var loadMessage=document.getElementById("loadMessage")
+            var LB=document.getElementById("LB");
+            var logo=document.getElementById("logo");
+            var opacity=document.getElementById("opacity");
+            var assistant=document.getElementById("assistant");
+            var notice=document.getElementById("notice");
+            var hidder=document.getElementById("hidder");
+            var head=document.getElementById("head");
+            var settings=document.getElementById("settings");
+            var stBox=document.getElementById("stBox");
+            var stWrapper=document.getElementById("stWrapper");
+            var outS=document.getElementById("outS");
+            var more_button=document.getElementById("more_button");
+            var outMore=document.getElementById("outmore_button");
+            var outNotice=document.getElementById("outN");
+            var menu=document.getElementById("menu");
+            var background=document.getElementById("background");
+            var marquee=document.getElementById("marquee");
+            var bgmPlayer=document.getElementById("bgmPlayer");
+            var open_close=document.getElementById("open_close");
+            var bgmName=document.getElementById("bgmName");
+            var music=document.getElementById("music");
+            var musiclogo=document.getElementById("musiclogo");
+            var user_name = document.getElementById('user_name');
+            var TV=document.getElementById("TV");
+            var novel_shell=document.getElementById("novel_shell");
+            var novel=document.getElementById("novel");
+            var TV_shell=document.getElementById("TV_shell");
+            var TV_count=0;
+            var menu_m3=document.getElementById("m3");
+            var help=document.getElementById("help");
+            var scroll=document.getElementById("scroll");
+            
+
+            
+            
+            //页面启动加载
+            //获取用户名
+            var loc=location.href;
+            var n1=loc.length;
+            var n2=loc.indexOf("=");
+            var un=decodeURI(loc.substr(n2+1, n1-n2));
+            if(un.length<5){
+                user_name.innerHTML=un;
+            }else{
+                user_name.innerHTML="管理员模式";
+            }
+            //加载页面
+            (function(){
+                loadingBox.style.width=400+"px";
+                var timer=0;
+                setInterval(function(){
+                    timer++;
+                    if(timer==7){
+                        LB.style.width=380+"px";
+                    }
+                    if(timer==15){
+                        loadMessage.innerHTML="加载完毕..."
+                    }
+                    if(timer==20){
+                        loadingBox.style.width=0+"px";
+                        loadingBox.style.border="none";
+                    }
+                    if(timer==30){
+                        opacity.style.top=0+"px";
+                        head.style.top=0+"px";
+                        assistant.style.right=0+"px";
+                        document.getElementById("more_button").style.height=35+"px";
+                        notice.className="notice_load";
+                        hidder.style.display="block";
+                        bgmPlayer.style.left=-215+"px";
+                    }
+                    if(timer==37){
+                        scroll.style.opacity="1";
+                    }
+                },100)
+            })();
+            
+            //点击logo展开设置按钮
+            logo.onclick=function(){
+                logo.style.width=0+"px";
+            }
+            
+            //MORE页面按钮
+            more_button.onclick=function(){
+                eval(Pause+"()");
+                bgmPlayer.style.left=-235+"px";
+                marquee.style.transition=1+"s";
+                document.getElementById("more").style.top=0+"px";
+                document.getElementById("assistant").style.right=-55+"px";
+                document.getElementById("more_button").style.height=0+"px";
+                outMore.style.top=0+"px";
+                head.style.opacity="0";
+                marquee.style.opacity="1";
+                var timer=0;
+                setInterval(function(){
+                    timer++;
+                    if(timer==5){
+                        marquee.style.width="100%";
+                    }
+                    if(timer==10){
+                        head.style.transition=0.5+"s";
+                        opacity.style.transition=0.5+"s";
+                        marquee.style.transition=0.5+"s";
+                    }
+                    if(timer==15){
+                        head.style.top=-55+"px";
+                        opacity.style.top=-55+"px";
+                        marquee.style.opacity="0";
+                        outMore.style.display="block";
+                    }
+                    if(timer==18){
+                        outMore.style.width=60+"px";
+                        outMore.style.border=1+"px"+" solid";
+                        outMore.style.height=35+"px";
+                        outMore.style.color="white";
+                        marquee.style.width=0+"px";
+                        head.style.transition=1+"s";
+                        opacity.style.transition=1+"s";
+                        marquee.style.transition=1+"s";
+                    }
+                },200)
+            }
+            
+            //关闭更多页面
+            document.getElementById("outmore_button").onclick=function(){
+                eval(Play+"()");
+                bgmPlayer.style.left=-215+"px";
+                outMore.style.top=55+"px";
+                outMore.style.display="none";
+                head.style.top=0+"px";
+                opacity.style.top=0+"px";
+                nav.style.width=600+"px";
+                document.getElementById("more").style.top="100%";
+                outMore.style.color="black";
+                outMore.style.height=0+"px";
+                head.style.opacity="1";
+                document.getElementById("assistant").style.right=0+"px";
+                var timer_outM=0;
+                setInterval(function(){
+                    timer_outM++;
+                    if(timer_outM==1){
+                        outMore.style.border=0+"px";
+                        more_button.style.height=35+"px";
+                        marquee.style.width=0+"px";
+                    }
+                },1000)
+            }
+            
+            //关闭公告
+            outN.onclick=function(){
+                hidder.style.display="none";
+                notice.className="notice";
+                scroll.style.opacity="0";
+            }
+            
+            //涂涂菜单效果
+            var menu_a=document.getElementById("menu").getElementsByTagName("a");
+            //菜单高度自动调整
+            autoHeight();
+            function autoHeight(){
+                menu.style.height=25*menu_a.length+"px";
+            }
+            //菜单选项过渡效果
+            assistant.onclick=function(){
+                menu.className="menu_load";
+                var i=0;
+                for(;i<menu_a.length;i++){
+                    menu_a[i].index=i;
+                    menu_a[i].style.marginLeft=0+"px";
+                }
+            }
+            background.onclick=function(){
+                if(TV_count==1){
+                    eval(Play+"()");
+                    TV_count=0;
+                }
+                logo.style.width=65+"px";
+                open_close.innerHTML="展开";
+                menu.className="menu";
+                novel.className="novel";
+                TV.className="TV";
+                var j=0;
+                for(;j<menu_a.length;j++){
+                    menu_a[j].index=j;
+                    menu_a[j].style.marginLeft=200+"px";
+                }
+            }
+            //公告按钮
+            m1.onclick=function(){
+                hidder.style.display="block";
+                notice.className="notice_load";
+                (function(){
+                    var timer=0;
+                    setInterval(function(){
+                        timer++;
+                        if(timer==7){
+                            scroll.style.opacity="1";
+                        }
+                    },100)
+                })();
+            }
+            
+            //帮助&说明
+            menu_m3.onclick=function(){
+                help.className="help_show";
+                hidder.style.display="block";
+            }
+            help.onclick=function(){
+                help.className="help";
+                hidder.style.display="none";
+            }
+            
+            //设置界面
+            settings.onclick=function(){
+                stBox.style.height=1+"px";
+                stBox.style.width=400+"px";
+                var timer=0;
+                setInterval(function(){
+                    timer++;
+                    if(timer==5){
+                        stBox.style.height=300+"px";
+                    }
+                },100)
+                logo.style.width=65+"px";
+                hidder.style.display="block";
+            }
+            outS.onclick=function(){ 
+                stWrapper.className="stWrapper stWrapper_in"
+                var timer=0;
+                setInterval(function(){
+                    timer++;
+                    if(timer==6){
+                        stWrapper.className="stWrapper";
+                    }
+                },100)
+                hidder.style.display="none";
+            }
+            
+            //背景点击效果
+            novel_shell.onclick=function(){
+                novel.className="novel_play";
+            }
+            TV_shell.onclick=function(){
+                eval(Pause+"()");
+                TV.className="TV_play";
+                TV_count=1;
+            }
+        </script>
+        <script type="text/javascript" src="js/class_main.js"></script>
+        <script type="text/javascript" src="js/settings_cookie.js"></script>
+        <script type="text/javascript" src="js/alert.js"></script>
+    </body>
+</html>

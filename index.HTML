@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+    <head>
+        <title>桐海之梦</title>
+        <meta name="referrer" content="no-referrer">
+        <meta name="keywords" content="高一十五班,高2024届十五班,蓬溪中学高一十五班,蓬溪中学高2024届十五班">
+        <meta name="description" content="这里是蓬溪中学高2024届十五班----文尖八班～～～～～网页未做兼容处理，请使用PC端Firefox浏览器打开...">
+        <meta name="author" content="亚斯红日网络科技中心">
+        <meta charest="Unicode">
+        <link rel="icon" href="images/mainlogo.png">
+        <style>
+            *{margin:0 auto;padding:0;}
+            
+            body{
+                background:gray;
+                animation: fadeInAnimation ease 4s; 
+                animation-iteration-count:1;
+                animation-fill-mode:forwards;
+            }
+            @keyframes fadeInAnimation{
+                0%{opacity:0;}
+                100%{opacity:1;}
+            }
+            
+            .message{
+                display:none;
+                width:20%;
+                height:40px;
+                position:fixed;
+                top:30px;
+                background-image:linear-gradient(to right,#74ebdf,#acb6e5);
+                border:1px solid #66ccff;
+                border-radius:20px;
+                line-height:40px;
+                color:white;
+                box-shadow:2px 2px 10px black;
+                text-align:center;
+                animation:messageAnimation 0.5s ease;
+            }
+            @keyframes messageAnimation{
+                0%{opacity:0;}
+                100%{opacity:1;}
+            }
+            
+             .flickerMessage{
+                animation:flicker 2s infinite;
+                width:20%;
+                height:40px;
+                position:fixed;
+                top:30px;
+                background-image:linear-gradient(to right,#74ebdf,#acb6e5);
+                border:1px solid #66ccff;
+                border-radius:20px;
+                line-height:40px;
+                color:white;
+                box-shadow:2px 2px 10px black;
+                text-align:center;
+            }
+            @keyframes flicker{
+                0%{opacity:1;box-shadow:2px 2px 10px black;}
+                50%{opacity:0.2;box-shadow:0 0 0 black;}
+                100%{opacity:1;box-shadow:2px 2px 10px black;}
+            }
+            
+            .message img{
+                width:30px;
+                height:30px;
+                position:absolute;
+                left:5px;
+                top:5px;
+            }
+            
+            .message p{
+                position:absolute;
+                left:40px;
+                top:2px;
+                font-size:17px;
+            }
+            
+            #backstage{
+                position:fixed;
+                top:0;
+                overflow:hidden;
+                text-align:center;
+                width:100%;
+                height:100%;
+                background:gray;
+            }
+            
+            #backstage img{
+                width:100%;
+                height:100%;
+            }
+            
+            .mainlogo{
+                width:300px;
+                line-height:300px;
+                height:300px;
+                border-radius:150px;
+                position:fixed;
+                top:24%;
+                left:34%;
+                overflow:hidden;
+                background:white;
+                transition:1s all;
+            }
+            
+            .shadow{
+                box-shadow:10px 10px 50px 10px white;
+                transition:1s all;
+            }
+            
+            #mainlogo img{
+                width:449px;
+                height:340px;
+                position:fixed;
+                left:247px;
+            }
+            
+            /*登录页面内容样式*/
+            #login{
+                display:none;
+                width:30%;
+                height:60%;
+                background-image:linear-gradient(to bottom right,#7f7fd5,#86a8e7,#91eae4);
+                opacity:0.9;
+                border:1px solid #66ffe6;
+                border-radius:20px 20px 20px 20px;
+                position:fixed;
+                top:120px;
+                left:335px;
+                text-align:center;
+                overflow:hidden;
+                box-shadow:5px 5px 10px 0 gray;
+                transition:1s all;
+                animation:loginAnimation ease 1s; 
+                animation-iteration-count:1;
+                animation-fill-mode:forwards;
+            }
+            @keyframes loginAnimation{
+                0%{opacity:0;}
+                100%{opacity:0.9;}
+            }
+
+            #quit{
+                width:10px;
+                height:10px;
+                text-decoration:none;
+                position:absolute;
+                top:5px;
+                right:5px;
+                line-height:10px;
+                border-radius:200px;
+                transition:0.5s all;
+                color:black;
+                outline:none;
+            }
+            
+            #quit:hover{
+                background:gray;
+                color:white;
+                transition:0.5s all;
+            }
+            
+            #figure{
+                width:50px;
+                height:50px;
+                border:1px solid green;
+                border-radius:200px;
+                background-image:linear-gradient(to bottom right,#fc5c7d,#6a82fb);
+                text-align:center;
+                overflow:hidden;
+                position:relative;
+            }
+            #userbackstage{
+                width:50px;
+                height:50px;
+                border-radius:200px;
+                text-align:center;
+                line-height:50px;
+                font-size:25px;
+                background:gray;
+                color:white;
+                overflow:hidden;
+            }
+            #testUser{
+                background:gray;
+                color:white;
+                width:50px;
+                height:50px;
+                border-radius:200px;
+                text-align:center;
+                line-height:50px;
+                font-size:25px;
+                position:absolute;
+                top:75px;
+                transition:0.5s;
+            }
+            
+            #Name{
+                width:50px;
+                height:20px;
+                text-align:center;
+                line-height:20px;
+                transition:0.3s;
+                overflow:hidden;
+            }
+
+            #user,#key{
+                position:absolute;
+                left:20px;
+            }
+            
+            #username,#password{
+                width:200px;
+                height:25px;
+                border:1px solid green;
+                overflow:hidden;
+                position:absolute;
+                right:10px;
+            }
+            
+            #loginbutton{
+                display:block;
+                width:80px;
+                height;40px;
+                text-decoration:none;
+                border:1px solid green;
+                border-radius:20px;
+                background-image:linear-gradient(to right,#373b44,#4286f4);
+                color:white;
+                outline:none;
+                transition:0.5s all;
+            }
+            
+            #loginbutton:hover{
+                background-image:linear-gradient(to right,#74ebd5,#acb6e5);
+                color:black;
+                transition:0.5s all;
+            }
+            
+            #more{
+                position:absolute;
+                width:40px;
+                height:15px;
+                bottom:0px;
+                left:195px;
+                border:1px solid black;
+                line-height:15px;
+                border-bottom:none;
+                border-radius:7px 7px 0 0;
+                transition:0.5s all;
+                font-size:13px;
+            }
+            
+            #more:hover{
+                background-image:linear-gradient(to right,#373b44,#4286f4);
+                color:white;
+                transition:0.5s all;
+            }
+            
+            #moreinfo{
+                display:none;
+                width:100px;
+                height;40px;
+                position:fixed;
+                top:399px;
+                right:375px;
+                border:1px solid #66ffe6;
+                border-top:none;
+                border-radius:0 0 10px 10px;
+                background-image:linear-gradient(to bottom right,#2980b9,#6dd5fa,#12c2e9);
+                overflow:hidden;
+                transition:0.3s all;
+                animation:moreinfo 0.5s ease;
+            }
+            @keyframes moreinfo{
+                0%{opacity:0;}
+                100%{opacity:1;}
+            }
+            
+            #moreinfo a{
+                display:block;
+                text-decoration:none;
+                outline:none;
+                font-size:0.8em;
+                color:black;
+                transition:0.3s all;
+            }
+            
+            #moreinfo a:hover{
+                background:#667db6;
+                color:white;
+                transition:0.3s all;
+            }
+            
+            #check{
+                color:red;
+                position:absolute;
+                font-size:10px;
+                left:113px;
+            }
+        </style>
+        
+        
+        
+    </head>
+    
+    <body id="Father">
+        <!--启动页面-->
+        <div id="backstage">
+            <img src="images/class.jpg" />
+        </div>
+        
+        <div id="message" class="message">
+            <div id="box">
+                <img src="images/loading.gif" alt="加载失败" />
+                <p>加载中，请稍候......</p>
+            </div>
+        </div>
+        <div id="mohu"></div>
+        <div id="mainlogo" class="mainlogo">
+            <img src="images/mainlogo.png" id="logo" onclick="clickLogin()"/>
+        </div>
+        
+        <!--登录窗口-->
+        <div id="login">
+            <div id="loginWrapper">
+                <header>身份验证</header>
+                <div id="figure">
+                    <div id="userbackstage">User</div>
+                    <div id="testUser"></div>
+                </div>
+                <center><h5 id="Name"></h5></center>
+                <!--登录-->
+                <form name="login" action="">
+                    <label id="user">用户名:</label>
+                    <input name="username" type="text" id="username" placeholder="用户名" value=""><br/><br/>
+                    <label id="key">密码:</label>
+                    <input name="password" type="password" id="password" placeholder="密码" value=""><br/><br/>
+                    <a href="javascript:;" id="loginbutton">登录</a>
+                </form>
+                <div id="more" onclick="more();">
+                <p>更多</p>
+                <div id="moreinfo">
+                    <a href="主页.html" id="modeChange">班主任模式</a>
+                </div>
+            </div>
+        </div>
+            <a href="javascript:;" onclick="quit();" id="quit">×</a>
+        </div>
+        <div id="shadow"></div>
+    </body>
+    <script type="text/javascript">
+            window.onload=function(){
+                var mP=document.getElementById("message");
+                var fatherElm=document.getElementById("Father");
+                var message=document.getElementById("message");
+                var mianlogo=document.getElementById("mainlogo");
+                var logo=document.getElementById("logo");
+                var login=document.getElementById("login");
+                var moreinfo=document.getElementById("moreinfo");
+                var username=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+                var inputP=document.getElementById("password");
+                var Name=document.getElementById("Name");
+                var loginWrapper=document.getElementById("loginWrapper");
+                //设置message的位置
+                messagePlace();
+                function messagePlace(){
+                    mP.style.left=(fatherElm.offsetWidth-mP.offsetWidth)/2-100+"px";
+                }
+                
+                //设置相关的动态效果
+                var timer=0;
+                //页面完成加载2s后message出现,4s后改变内容
+                setInterval(function(){
+                    timer++;
+                    if(timer==3){
+                        message.style.display="block";
+                    }
+                    if(timer==7){
+                        message.innerHTML="加载完成,点击logo登录"
+                        mainlogo.className="shadow mainlogo";
+                        message.className="flickerMessage";
+                        
+                        //点击logo展开登录窗口并开始检测用户名
+                        logo.onclick=function(){
+                                    checkUsername(1);
+                                    login.style.display="block";
+                                    message.style.display="none";
+                        }
+                    }
+                },1000)
+            }
+            inputP.focus=function(){
+                setInterval(function(){
+                    loginWrapper.style.marginTop=20+"px";
+                },200)
+            }
+            
+            //关闭登录窗口并显示提示框
+            function quit(){
+                checkUsername(0);
+                login.style.display="none";
+                message.style.display="block";
+            }
+            
+            //展开更多选项
+            function more(){
+                if(moreinfo.style.display=="none"){
+                    moreinfo.style.display="block";
+                }
+                else{
+                        moreinfo.style.display="none";
+                    }
+            }
+            
+            
+
+        </script>
+    <script type="text/javascript" src="js/alert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+</html>

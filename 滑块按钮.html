@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            滑块
+        </title>
+        <style>
+            .switch-box {
+                position:absolute;
+                top:100px;
+                left:400px;
+                box-shadow:2px 2px 5px black;
+                border-radius:20px;
+    width: 49px;
+}
+.switch-box .switch {
+    /* 隐藏checkbox默认样式 */
+    display: none;
+}
+.switch-box label {
+    /* 通过label扩大点击热区 */
+    position: relative;
+    display: block;
+    margin: 1px;
+    height: 28px;
+    cursor: pointer;
+}
+.switch-box label::before {
+    /* before设置前滚动小圆球 */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -13px;
+    margin-left: -14px;
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    background-color: #fff;
+    /* 通过transform、transition属性控制元素过渡进而形成css3动画 */
+    -webkit-transform: translateX(-9px);
+    -moz-transform: translateX(-9px);
+    transform: translateX(-9px);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.switch-box .switch:checked~label::before {
+    /* 语义：被选中的类名为"switch"元素后面的label元素里的伪类元素，进行更改css样式 */
+    /* 形成伪类结构选择器：":"冒号加布尔值"checked" */
+    /* " Ele1 ~ Ele2 "波浪号在css的作用：连接的元素必须有相同的父元素，选择出现在Ele1后的Ele2（但不必跟在Ele1，也就是说可以并列）  */
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    transform: translateX(10px);
+}
+.switch-box label::after {
+    /* after设置滚动前背景色 */
+    content: "";
+    display: block;
+    border-radius: 30px;
+    height: 28px;
+    background-color: #dcdfe6;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.switch-box .switch:checked~label::after {
+    background-color: #13ce66;
+}
+
+
+/*////////////////////////*/
+.checkbox{
+    width:60px;
+    height:30px;
+    position:absolute;
+    top:300px;
+    left:400px;
+    border-radius:20px;
+    border:1px solid white;
+    box-shadow:2px 2px 5px gray;
+    background:#ccc;
+    transition:0.5s;
+}
+.Scheck{
+    display:none;
+}
+.checkbox label{
+    display:block;
+    width:28px;
+    height:28px;
+    border-radius:200px;
+    background:white;
+    margin:1px 1px 1px 1px;
+    transition:0.5s;
+}
+        </style>
+    </head>
+    
+    <body>
+        <div class="switch-box">
+                <input id="switchButton" type="checkbox" class="switch" />
+
+    <label for="switchButton"></label>
+</div>
+
+<div class="checkbox" id="button">
+    <input type="checkbox" id="Scheck" class="Scheck">
+    <label for="Scheck" id="switchBox"></label>
+</div>
+<script type="text/javascript">
+    var switchBox=document.getElementById("switchBox");
+    var Scheck=document.getElementById("Scheck");
+    var button=document.getElementById("button");
+    switchBox.onclick=function(){
+        if(Scheck.checked==true){
+            switchBox.style.marginLeft=31+"px";
+            button.style.background="#aaa";
+        }else{
+            switchBox.style.marginLeft=1+"px";
+            button.style.background="#ccc";
+        }
+    }
+</script>
+    </body>
+</html>
